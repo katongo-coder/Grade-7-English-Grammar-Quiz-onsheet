@@ -70,7 +70,7 @@
                     <p class="text-xl font-bold text-slate-700 uppercase">Total Marks: <span id="raw"></span></p>
                     <p id="grade" class="mt-6 inline-block px-8 py-2 rounded-full font-black text-sm uppercase tracking-widest"></p>
                     
-                    <p id="auto-status" class="mt-4 text-[10px] font-bold text-slate-400 uppercase italic">Syncing with server...</p>
+                    <p id="auto-status" class="mt-4 text-[10px] font-bold text-slate-400 uppercase italic">Processing Results...</p>
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10 no-print">
@@ -375,7 +375,7 @@
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzgT05HBRdUdtZNJMrbs6674BaAqC3NTOpdEIhDJGEQYQb871YIooRED5BwyU4ce-Jl/exec';
 
             if (!isAuto) {
-                btn.innerText = "Submitting...";
+                btn.innerText = "Processing...";
                 btn.disabled = true;
             }
 
@@ -395,10 +395,10 @@
                 body: JSON.stringify(payload)
             }).then(() => {
                 if (isAuto) {
-                    statusEl.innerText = "Results auto-submitted successfully ✅";
+                    statusEl.innerText = "Results Processed successfully ✅";
                     statusEl.className = "mt-4 text-[10px] font-bold text-green-600 uppercase italic";
                 }
-                btn.innerText = "Submitted ✅";
+                btn.innerText = "Review Processed ✅";
                 btn.classList.replace('bg-orange-500', 'bg-green-600');
                 btn.disabled = true;
             }).catch(error => {
